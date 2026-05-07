@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>NeoCrea | Personalización, 3D, vinilo y merchandising</title>
+
+  <link rel="icon" type="image/png" href="img/favicon.png">
+
+  <meta name="description" content="NeoCrea: personalización textil, vinilo, impresión 3D, grabado láser y merchandising. Diseñamos lo que imaginas, creamos lo que te representa.">
+
+  <meta property="og:title" content="NeoCrea">
+  <meta property="og:description" content="Personalización textil, vinilo, impresión 3D, láser y merchandising.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neocrea.es">
+  <meta property="og:image" content="https://neocrea.es/img/logo.png">
+
+  <meta name="theme-color" content="#000000">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:#000;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:rgba(0,0,0,0.88);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(212,175,55,0.25);
+      z-index:999;
+    }
+
+    nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 24px;
+    }
+
+    .logo{
+      color:#d4af37;
+      font-size:1.6rem;
+      font-weight:bold;
+      letter-spacing:4px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:24px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#fff;
+      transition:0.3s;
+      font-size:0.95rem;
+    }
+
+    nav a:hover{
+      color:#d4af37;
+    }
+
+    .menu-toggle{
+      display:none;
+      color:#d4af37;
+      font-size:1.7rem;
+      cursor:pointer;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:130px 20px 90px;
+      background:
+      radial-gradient(circle at top, rgba(212,175,55,0.18), transparent 42%),
+      radial-gradient(circle at bottom right, rgba(212,175,55,0.08), transparent 35%),
+      #000;
+    }
+
+    .hero-content{
+      max-width:900px;
+      animation:fadeUp 1.3s ease;
+    }
+
+    .hero img{
+      width:380px;
+      max-width:85%;
+      margin-bottom:30px;
+      filter:drop-shadow(0 0 22px rgba(212,175,55,0.28));
+    }
+
+    .subtitle{
+      font-size:1.3rem;
+      color:#ddd;
+      margin-bottom:38px;
+      line-height:1.6;
+    }
+
+    .hero-tags{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:38px;
+    }
+
+    .hero-tags span{
+      border:1px solid rgba(212,175,55,0.35);
+      color:#d4af37;
+      padding:8px 16px;
+      border-radius:50px;
+      font-size:0.9rem;
+      background:rgba(212,175,55,0.05);
+    }
+
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:16px 32px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+      border:2px solid #d4af37;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:#d4af37;
+      color:#000;
+    }
+
+    .btn-primary:hover{
+      background:transparent;
+      color:#d4af37;
+    }
+
+    .btn-secondary{
+      color:#d4af37;
+    }
+
+    .btn-secondary:hover{
+      background:#d4af37;
+      color:#000;
+    }
+
+    section{
+      padding:100px 20px;
+    }
+
+    .section-dark{
+      background:#050505;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:2.4rem;
+      margin-bottom:18px;
+      color:#d4af37;
+      letter-spacing:3px;
+    }
+
+    .section-intro{
+      max-width:780px;
+      margin:0 auto 60px;
+      text-align:center;
+      color:#bbb;
+      line-height:1.8;
+      font-size:1.05rem;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(255px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:linear-gradient(145deg, #0d0d0d, #060606);
+      border:1px solid rgba(212,175,55,0.22);
+      border-radius:24px;
+      padding:38px 30px;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:#d4af37;
+      box-shadow:0 0 28px rgba(212,175,55,0.16);
+    }
+
+    .card i{
+      color:#d4af37;
+      font-size:2rem;
+      margin-bottom:20px;
+    }
+
+    .card h3{
+      color:#d4af37;
+      margin-bottom:15px;
+      font-size:1.35rem;
+    }
+
+    .card p{
+      color:#ccc;
+      line-height:1.7;
+    }
+
+    .brands-slider{
+      overflow:hidden;
+      position:relative;
+      margin-top:50px;
+      padding:18px 0;
+    }
+
+    .brands-slider::before,
+    .brands-slider::after{
+      content:"";
+      position:absolute;
+      top:0;
+      width:150px;
+      height:100%;
+      z-index:2;
+      pointer-events:none;
+    }
+
+    .brands-slider::before{
+      left:0;
+      background:linear-gradient(to right, #050505 0%, rgba(5,5,5,0) 100%);
+    }
+
+    .brands-slider::after{
+      right:0;
+      background:linear-gradient(to left, #050505 0%, rgba(5,5,5,0) 100%);
+    }
+
+    .brands-track{
+      display:flex;
+      width:max-content;
+      gap:70px;
+      animation:scrollBrands 35s linear infinite;
+      align-items:center;
+    }
+
+    .brands-track img{
+      height:42px;
+      width:auto;
+      object-fit:contain;
+      opacity:0.62;
+      transition:0.3s;
+      filter:grayscale(100%) brightness(1.4);
+    }
+
+    .brands-track img:hover{
+      opacity:1;
+      transform:scale(1.08);
+      filter:grayscale(0%) brightness(1.05);
+    }
+
+    @keyframes scrollBrands{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(-50%); }
+    }
+
+    .catalog-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(230px,1fr));
+      gap:24px;
+      margin-top:40px;
+    }
+
+    .catalog-item{
+      background:#0d0d0d;
+      border:1px solid rgba(212,175,55,0.2);
+      border-radius:22px;
+      padding:28px;
+      transition:0.3s;
+    }
+
+    .catalog-item:hover{
+      border-color:#d4af37;
+      transform:translateY(-4px);
+    }
+
+    .catalog-item h3{
+      color:#d4af37;
+      margin-bottom:12px;
+      font-size:1.2rem;
+    }
+
+    .catalog-item p{
+      color:#ccc;
+      line-height:1.6;
+      font-size:0.98rem;
+    }
+
+    .featured-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      gap:28px;
+      margin-top:40px;
+    }
+
+    .featured-item{
+      background:#0d0d0d;
+      border:1px solid rgba(212,175,55,0.22);
+      border-radius:24px;
+      overflow:hidden;
+      transition:0.3s;
+      cursor:pointer;
+    }
+
+    .featured-item:hover{
+      transform:translateY(-6px);
+      border-color:#d4af37;
+      box-shadow:0 0 28px rgba(212,175,55,0.16);
+    }
+
+    .featured-item img{
+      width:100%;
+      height:260px;
+      object-fit:contain;
+      background:#000;
+      padding:10px;
+      display:block;
+      transition:0.4s;
+    }
+
+    .featured-item:hover img{
+      transform:scale(1.05);
+    }
+
+    .featured-content{
+      padding:24px;
+    }
+
+    .featured-content h3{
+      color:#d4af37;
+      margin-bottom:10px;
+      font-size:1.2rem;
+    }
+
+    .featured-content p{
+      color:#ccc;
+      line-height:1.6;
+      font-size:0.96rem;
+    }
+
+    .lightbox{
+      display:none;
+      position:fixed;
+      z-index:99999;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.92);
+      justify-content:center;
+      align-items:center;
+      padding:30px;
+    }
+
+    .lightbox.active{
+      display:flex;
+    }
+
+    .lightbox img{
+      max-width:95%;
+      max-height:92%;
+      border-radius:18px;
+      box-shadow:0 0 40px rgba(212,175,55,0.28);
+    }
+
+    .lightbox-close{
+      position:absolute;
+      top:25px;
+      right:35px;
+      color:#d4af37;
+      font-size:2.5rem;
+      cursor:pointer;
+      z-index:100000;
+      transition:0.3s;
+    }
+
+    .lightbox-close:hover{
+      color:#fff;
+      transform:scale(1.1);
+    }
+
+    .socials{
+      margin-top:38px;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .socials a{
+      text-decoration:none;
+      color:#d4af37;
+      border:1px solid rgba(212,175,55,0.35);
+      padding:14px 22px;
+      border-radius:50px;
+      transition:0.3s;
+    }
+
+    .socials a:hover{
+      background:#d4af37;
+      color:#000;
+    }
+
+    footer{
+      border-top:1px solid rgba(212,175,55,0.22);
+      text-align:center;
+      padding:42px 20px;
+      color:#888;
+      background:#030303;
+    }
+
+    .whatsapp-float{
+      position:fixed;
+      width:65px;
+      height:65px;
+      bottom:25px;
+      right:25px;
+      background:#25D366;
+      color:white;
+      border-radius:50%;
+      text-align:center;
+      font-size:34px;
+      line-height:65px;
+      box-shadow:0 0 25px rgba(37,211,102,0.45);
+      z-index:9999;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .whatsapp-float:hover{
+      transform:scale(1.1);
+      box-shadow:0 0 35px rgba(37,211,102,0.75);
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(35px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:768px){
+      .menu-toggle{
+        display:block;
+      }
+
+      nav ul{
+        display:none;
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:rgba(0,0,0,0.96);
+        flex-direction:column;
+        text-align:center;
+        padding:25px 0;
+      }
+
+      nav ul.active{
+        display:flex;
+      }
+
+      .subtitle{
+        font-size:1.1rem;
+      }
+
+      .section-title{
+        font-size:2rem;
+      }
+
+      .btn{
+        width:100%;
+        max-width:290px;
+      }
+
+      .brands-slider::before,
+      .brands-slider::after{
+        width:70px;
+      }
+
+      .brands-track{
+        gap:45px;
+      }
+
+      .brands-track img{
+        height:36px;
+      }
+
+      .featured-item img{
+        height:230px;
+      }
+
+      .lightbox{
+        padding:18px;
+      }
+
+      .lightbox-close{
+        top:15px;
+        right:22px;
+        font-size:2rem;
+      }
+    }
+  </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YCJD87FBG"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-4YCJD87FBG');
+</script>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">NEOCREA</div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <ul id="menu">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#brands">Trabajamos con</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#destacados">Diseños destacados</a></li>
+      <li><a href="#proceso">Cómo trabajamos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <img src="img/logo.png" alt="Logo NeoCrea">
+
+    <p class="subtitle">
+  Personalización premium para marcas, eventos y negocios.
+</p>
+
+    <div class="hero-tags">
+      <span>Textil</span>
+      <span>Vinilo</span>
+      <span>3D</span>
+      <span>Láser</span>
+      <span>Merchandising</span>
+    </div>
+
+    <div class="buttons">
+      <a class="btn btn-primary" href="https://wa.me/34683158654" target="_blank">Pedir presupuesto</a>
+      <a class="btn btn-secondary" href="#catalogo">Ver catálogo</a>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="container">
+    <h2 class="section-title">SERVICIOS</h2>
+
+    <p class="section-intro">
+      En NeoCrea damos forma a ideas personalizadas para particulares, empresas, eventos y regalos especiales.
+    </p>
+
+    <div class="services-grid">
+      <div class="card">
+        <i class="fas fa-shirt"></i>
+        <h3>Personalización Textil</h3>
+        <p>Camisetas, polos, sudaderas y ropa personalizada con acabados profesionales.</p>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-pen-ruler"></i>
+        <h3>Vinilo Adhesivo</h3>
+        <p>Pegatinas, rotulación, decoración y personalización de objetos.</p>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-cube"></i>
+        <h3>Impresión 3D</h3>
+        <p>Llaveros, decoración, piezas funcionales y productos personalizados.</p>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-bolt"></i>
+        <h3>Grabado Láser</h3>
+        <p>Grabados personalizados sobre madera, cuero, acrílico y otros materiales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="brands" class="section-dark">
+  <div class="container">
+    <h2 class="section-title">TRABAJAMOS CON</h2>
+
+    <p class="section-intro">
+      Utilizamos materiales, herramientas y marcas reconocidas para conseguir acabados profesionales y resultados de calidad.
+    </p>
+
+    <div class="brands-slider">
+      <div class="brands-track">
+        <img src="img/brands/roly.png" alt="Roly">
+        <img src="img/brands/cricut.png" alt="Cricut">
+        <img src="img/brands/silhouette.png" alt="Silhouette">
+        <img src="img/brands/hp.png" alt="HP">
+        <img src="img/brands/flashforge.png" alt="Flashforge">
+        <img src="img/brands/creality.png" alt="Creality">
+        <img src="img/brands/politape.png" alt="PoliTape">
+        <img src="img/brands/chemica.png" alt="Chemica">
+        <img src="img/brands/siser.png" alt="Siser">
+
+        <img src="img/brands/roly.png" alt="Roly">
+        <img src="img/brands/cricut.png" alt="Cricut">
+        <img src="img/brands/silhouette.png" alt="Silhouette">
+        <img src="img/brands/hp.png" alt="HP">
+        <img src="img/brands/flashforge.png" alt="Flashforge">
+        <img src="img/brands/creality.png" alt="Creality">
+        <img src="img/brands/politape.png" alt="PoliTape">
+        <img src="img/brands/chemica.png" alt="Chemica">
+        <img src="img/brands/siser.png" alt="Siser">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="catalogo" class="section-dark">
+  <div class="container">
+    <h2 class="section-title">CATÁLOGO</h2>
+
+    <p class="section-intro">
+      Trabajamos bajo presupuesto personalizado según diseño, cantidad, material y acabado.
+    </p>
+
+    <div class="catalog-grid">
+      <div class="catalog-item">
+        <h3>Camisetas personalizadas</h3>
+        <p>Diseños para eventos, empresas y regalos.</p>
+      </div>
+
+      <div class="catalog-item">
+        <h3>Sudaderas y polos</h3>
+        <p>Ropa personalizada para negocios y grupos.</p>
+      </div>
+
+      <div class="catalog-item">
+        <h3>Llaveros y detalles 3D</h3>
+        <p>Productos fabricados bajo demanda.</p>
+      </div>
+
+      <div class="catalog-item">
+        <h3>Pegatinas y vinilos</h3>
+        <p>Vinilo para decoración, objetos y vehículos.</p>
+      </div>
+
+      <div class="catalog-item">
+        <h3>Grabados personalizados</h3>
+        <p>Detalles únicos sobre distintos materiales.</p>
+      </div>
+
+      <div class="catalog-item">
+        <h3>Merchandising</h3>
+        <p>Productos promocionales personalizados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="destacados">
+  <div class="container">
+    <h2 class="section-title">DISEÑOS DESTACADOS</h2>
+
+    <p class="section-intro">
+      Una muestra visual de ideas personalizadas en textil, impresión 3D, vinilo, grabado láser y merchandising.
+    </p>
+
+    <div class="featured-grid">
+      <div class="featured-item">
+        <img src="img/mockups/camiseta-neocrea-blanca.png" onclick="openLightbox(this.src)" alt="Camiseta blanca NeoCrea">
+
+        <div class="featured-content">
+          <h3>Camiseta personalizada</h3>
+          <p>Diseño elegante con logo en pecho ideal para marcas, eventos y merchandising.</p>
+        </div>
+      </div>
+
+      <div class="featured-item">
+        <img src="img/mockups/camiseta-mujer-negra-neocrea.png" onclick="openLightbox(this.src)" alt="Camiseta mujer NeoCrea">
+
+        <div class="featured-content">
+          <h3>Camiseta mujer</h3>
+          <p>Corte femenino con acabado premium y personalización discreta en dorado.</p>
+        </div>
+      </div>
+
+      <div class="featured-item">
+        <img src="img/mockups/sudadera-negra-neocrea.png" onclick="openLightbox(this.src)" alt="Sudadera NeoCrea">
+
+        <div class="featured-content">
+          <h3>Sudadera premium</h3>
+          <p>Sudadera negra personalizada perfecta para imagen de marca o ropa promocional.</p>
+        </div>
+      </div>
+
+      <div class="featured-item">
+        <img src="img/mockups/vinilo-escaparate-neocrea.png" onclick="openLightbox(this.src)" alt="Vinilo NeoCrea">
+
+        <div class="featured-content">
+          <h3>Vinilo de escaparate</h3>
+          <p>Rotulación elegante para negocios, escaparates y espacios comerciales.</p>
+        </div>
+      </div>
+
+      <div class="featured-item">
+        <img src="img/mockups/grabado-laser-madera-neocrea.png" onclick="openLightbox(this.src)" alt="Grabado láser NeoCrea">
+
+        <div class="featured-content">
+          <h3>Grabado láser</h3>
+          <p>Grabados personalizados sobre madera con acabado cálido y artesanal.</p>
+        </div>
+      </div>
+
+      <div class="featured-item">
+        <img src="img/mockups/llavero-3d-neocrea.png" onclick="openLightbox(this.src)" alt="Llavero 3D NeoCrea">
+
+        <div class="featured-content">
+          <h3>Llavero 3D</h3>
+          <p>Merchandising personalizado fabricado en impresión 3D para eventos y regalos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proceso">
+  <div class="container">
+    <h2 class="section-title">CÓMO TRABAJAMOS</h2>
+
+    <p class="section-intro">
+      Un proceso sencillo, directo y personalizado para cada cliente.
+    </p>
+
+    <div class="services-grid">
+      <div class="card">
+        <i class="fas fa-comments"></i>
+        <h3>1. Cuéntanos tu idea</h3>
+        <p>Nos explicas lo que necesitas y buscamos la mejor solución.</p>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-wand-magic-sparkles"></i>
+        <h3>2. Preparamos el diseño</h3>
+        <p>Adaptamos materiales y técnicas para el mejor resultado.</p>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-gears"></i>
+        <h3>3. Fabricamos tu pedido</h3>
+        <p>Producción cuidada y personalizada bajo demanda.</p>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-box-open"></i>
+        <h3>4. Entrega final</h3>
+        <p>Entrega o envío según el tipo de pedido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="section-dark">
+  <div class="container">
+    <h2 class="section-title">CONTACTO</h2>
+
+    <p class="section-intro">
+      ¿Tienes una idea? Cuéntanos tu proyecto y te ayudaremos a hacerlo realidad.
+    </p>
+
+    <div class="socials">
+      <a href="https://wa.me/34683158654" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+
+      <a href="https://instagram.com/neocrea_ad" target="_blank">
+        <i class="fab fa-instagram"></i> @neocrea_ad
+      </a>
+
+      <a href="mailto:info@neocrea.es">
+        <i class="fas fa-envelope"></i> info@neocrea.es
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 NeoCrea · Todos los derechos reservados
+</footer>
+
+<a href="https://wa.me/34683158654" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt="Imagen ampliada NeoCrea">
+</div>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("active");
+}
+
+document.querySelectorAll("#menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("menu").classList.remove("active");
+  });
+});
+
+function openLightbox(src){
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  lightboxImg.src = src;
+  lightbox.classList.add("active");
+}
+
+function closeLightbox(){
+  const lightbox = document.getElementById("lightbox");
+  lightbox.classList.remove("active");
+}
+</script>
+
+</body>
+</html>
