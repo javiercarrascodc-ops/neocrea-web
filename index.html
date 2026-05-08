@@ -488,7 +488,10 @@
       .menu-toggle{
         display:block;
       }
-
+.brands-slider{
+  margin-top:30px;
+  padding:12px 0;
+}
       nav ul{
         display:none;
         position:absolute;
@@ -524,12 +527,15 @@
       }
 
       .brands-track{
-        gap:45px;
-      }
+  gap:35px;
+  animation:scrollBrands 25s linear infinite;
+}
 
-      .brands-track img{
-        height:36px;
-      }
+.brands-track img{
+  height:30px;
+  max-width:120px;
+  object-fit:contain;
+}
 
       .featured-item img{
         height:230px;
